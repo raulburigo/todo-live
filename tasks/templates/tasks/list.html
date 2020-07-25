@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Tarefas{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <a id="add-link" href="/newtask/">
+    <div class="col-md-2 add-div">
+        <i class="fas fa-plus"></i>Adicionar Tarefa
+    </div>
+    </a>
+    <div class="col-md-9 search-div">
+        <form method="GET" id="search-form">
+            <input class="form-control" type="text" id="search" name="search" placeholder="Digite o nome da tarefa para buscar" value="{{request.GET.search}}">
+            <button type="submit" class="fas fa-search"></button>
+        </form>
+    </div>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <ul class="task-list">
+        {% for task in tasks %}
+        <li class="task-item">
+            {% if task.done == 2 %}
+                <a href="/done/{{task.id}}"><span><i class="far fa-check-circle"></i></span></a>
+                <span><a class="done-task" href="/tasks/{{task.id}}">{{task}}</a></span>
+            {% elif task.done == 1 %}
+                <a href="/done/{{task.id}}"><span><i class="far fa-circle"></i></span></a>
+                <span><a class="doing-task" href="/tasks/{{task.id}}">{{task}}</a></span>
+            {% endif %}
+            <a href="/delete/{{task.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+            <a href="/edit/{{task.id}}"><span><i class="fas fa-edit"></i></span></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if tasks.has_previous %}
+                <a href="?page={{ tasks.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+            <span class="current">
+                {% if tasks.number %}
+                {{ tasks.number }} de {{ tasks.paginator.num_pages }}
+                {% else %}
+                1 de 1
+                {% endif %}
+            </span>
+            {% if tasks.has_next %}
+                <a href="?page={{ tasks.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 chart-area">
+            <canvas class="pizza">
+                <script>
+                var datanojs = {{ data|safe }}
+                var labelsnojs = {{ labels|safe }}
+                </script>
+            </canvas>
+        </div>
+        <div class="col-lg-4 chart-area">
+            <canvas class="barras">
+                <script>
+                    var lwdatanojs = {{ lwdata|safe }}
+                    var lwlabelsnojs = {{ lwlabels|safe }}
+                </script>
+            </canvas>
+        </div>
+        <div class="col-lg-4 chart-area">
+            <canvas class="linha">
+                <script>
+                    var tpddatanojs = {{ tasks_per_day|safe }}
+                    var cpddatanojs = {{ created_per_day|safe }}
+                    var tpdlabelsnojs = {{ days_of_week|safe }}
+                </script>
+            </canvas>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,171 @@
+.container-fluid{
+    padding:0;
+}
+
+/* Navbar */
+
+.navbar{
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar-nav{
+    margin: auto;
+}
+.navbar-brand{
+    font-weight: bold;
+}
+.navbar-light .navbar-nav a.nav-link {
+    color: #333;
+    letter-spacing:1px;
+}
+/* welcome */
+#welcome{
+    color:#696969;
+    text-align:center;
+    padding-bottom:15px;
+}
+
+/* botão de adicionar */
+.add-div{
+    background-color:#3476e2;
+    cursor:pointer;
+    display:inline-block;
+    color:#fff;
+    padding:8px;
+    border-radius:5px;
+    margin-right:25px;
+    text-align: center;
+}
+#add-link{
+    text-decoration:none;
+}
+.fas.fa-plus{
+    color:#fff;
+    margin-right:10px;
+    margin-left:5px;
+}
+
+/* buscador */
+.fas.fa-search{
+    background-color:#fff;
+    border:none;
+    position:absolute;
+    top:10px;
+    right:12px;
+}
+.search-div{
+    padding:0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display:inline-block;
+}
+
+/* lista de tarefas */
+
+.list-div{
+    padding:0;
+    margin-bottom:30px;
+}
+.list-div h3{
+    border-bottom: #ccc 1px dotted;
+}
+.task-list{
+    padding-left:0;
+}
+.task-item{
+    list-style:none;
+    font-size:20px;
+    height:50px;
+    padding:0 10px;
+    padding-top:10px;
+    border-bottom:1px dashed #ccc;
+}
+.task-list a{
+    color:#333;
+}
+.fas.fa-trash, .fas.fa-edit{
+    cursor:pointer;
+    margin: 5px;
+    font-size:20px;
+    float: right;
+}
+.done-task, .doing-task{
+    padding-left:10px;
+}
+
+/* rodapé */
+
+footer {
+    background-color:#333;
+    height:300px;
+    border-top:2px solid #202020
+}
+footer p{
+    color: #f5f5f5;
+    text-align:center;
+    top:50%;
+    position:relative;
+}
+
+/* message */
+ul.messages{
+    padding:0;
+}
+ul.messages li{
+    list-style:none;
+}
+
+/* pages */
+.pagination{
+    margin-bottom: 20px;
+}
+.step-links{
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+}
+.step-links .current{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+/* login */
+.auth-card{
+    margin-bottom:30px;
+}
+.brn-block{
+    float:none;
+    width:100%;
+    margin:0;
+}
+
+/* área do gráfico */
+.chart-area{
+    padding-bottom:20px;
+    margin-bottom:30px;
+}
+
+.barras, .pizza .linha{
+    height: 300px;
+}
+
+/* área de teste */
+
+.teste {
+    border:red 1px solid;
+}
+.teste h1{
+    text-align: center;
+}
+.parcial{
+    border:2px dotted green;
+    height:150px;
+    text-align:center;
+}
+.telagrande {
+    border:1px dotted blue;
+    text-align:center;
+    margin: 15px;
+}
+
