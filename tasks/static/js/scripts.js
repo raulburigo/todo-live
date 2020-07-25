@@ -67,7 +67,6 @@ $(document).ready(function() {
             labels: labelsnojs
         },
         options: {
-            responsive: true,
             title: {
                 display: true,
                 text: 'Status das tarefas',
@@ -111,7 +110,6 @@ $(document).ready(function() {
                 text: 'Última semana',
                 fontSize: 20,
             },
-            responsive: true,
             maintainAspectRatio: false,
             scales: {
                 yAxes: [{
